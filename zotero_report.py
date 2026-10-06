@@ -186,11 +186,52 @@ def annotations(conn, item_id):
     return out
 
 
+# ----------------------------------------------------------------------------- stats
+
+def _avg_words(texts):
+    if not texts:
+        return None
+    return round(sum(len(t.split()) for t in texts) / len(texts), 1)
+
+
+def annotation_stats(annots):
+    """Counts per type, plus average word length of marked text and of comments."""
+    marked = [a["highlighted_text"] for a in annots
+              if a["type"] in ("highlight", "underline") and a["highlighted_text"]]
+    comments = [a["comment"] for a in annots if a["comment"]]
+    return {
+        "annotations": len(annots),
+        "highlights": sum(a["type"] == "highlight" for a in annots),
+        "underlines": sum(a["type"] == "underline" for a in annots),
+        "comments": len(comments),
+        "avg_text_words": _avg_words(marked),
+        "avg_comment_words": _avg_words(comments),
+    }
+
+
+def stats_summary(stats):
+    parts = [
+        f"{stats['annotations']} annotations ({stats['highlights']} highlights, "
+        f"{stats['underlines']} underlines, {stats['comments']} comments)"
+    ]
+    if stats["avg_text_words"] is not None:
+        parts.append(f"⌀ {stats['avg_text_words']} words/highlight")
+    if stats["avg_comment_words"] is not None:
+        parts.append(f"⌀ {stats['avg_comment_words']} words/comment")
+    return " · ".join(parts)
+
+
+def collection_stats(records):
+    """Pooled over all annotations, so heavily annotated sources weigh more."""
+    return annotation_stats([a for r in records for a in r["annotations"]])
+
+
 # ----------------------------------------------------------------------------- assembly
 
 def build_record(conn, item_row):
     item_id = item_row["itemID"]
     fm = field_map(conn, item_id)
+    annots = annotations(conn, item_id)
     return {
         "key": item_row["key"],
         "item_type": item_row["typeName"],
@@ -205,14 +246,15 @@ def build_record(conn, item_row):
         "url": fm.get("url", ""),
         "abstract": fm.get("abstractNote", ""),
         "tags": tags(conn, item_id),
-        "annotations": annotations(conn, item_id),
+        "annotations": annots,
         "notes": child_notes(conn, item_id),
+        "stats": annotation_stats(annots),
     }
 
 
 def to_markdown(collection_name, records):
     L = [f"# Zotero Report — {collection_name}", ""]
-    L.append(f"*{len(records)} item(s)*")
+    L.append(f"*{len(records)} item(s) · {stats_summary(collection_stats(records))}*")
     L.append("")
     for rec in records:
         authors = "; ".join(a["name"] for a in rec["authors"]) or "—"
@@ -226,6 +268,8 @@ def to_markdown(collection_name, records):
             L.append(f"**DOI:** {rec['doi']}  ")
         if rec["tags"]:
             L.append(f"**Tags:** {', '.join(rec['tags'])}  ")
+        if rec["stats"]["annotations"]:
+            L.append(f"**Annotations:** {stats_summary(rec['stats'])}  ")
         L.append("")
         if rec["abstract"]:
             L.append("### Abstract")
@@ -293,7 +337,12 @@ def main():
     json_path = out_dir / f"{safe}.json"
     md_path = out_dir / f"{safe}.md"
 
-    payload = {"collection": args.collection, "item_count": len(records), "items": records}
+    payload = {
+        "collection": args.collection,
+        "item_count": len(records),
+        "stats": collection_stats(records),
+        "items": records,
+    }
     json_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     md_path.write_text(to_markdown(args.collection, records), encoding="utf-8")
 
