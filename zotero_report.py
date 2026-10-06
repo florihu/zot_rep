@@ -8,6 +8,9 @@ comments, with page + color + order), and standalone notes.
 Reads ~/Zotero/zotero.sqlite directly. No add-on required. Zotero may stay open
 (the DB is copied to a temp file first to avoid lock errors).
 
+Output goes to colrep/<Collection>_<YYYY-MM-DD>/ next to this script unless
+--out is given. Set ZOTERO_DB to point at a non-standard database location.
+
 Usage:
     python zotero_report.py --list
     python zotero_report.py --collection "Copper PSUT"
@@ -16,6 +19,7 @@ Usage:
 """
 
 import argparse
+import datetime
 import json
 import os
 import re
@@ -32,6 +36,9 @@ ANNOTATION_TYPES = {1: "highlight", 2: "note", 3: "image", 4: "ink", 5: "underli
 
 
 def default_db_path():
+    env = os.environ.get("ZOTERO_DB")
+    if env:
+        return Path(env).expanduser()
     candidates = [
         Path.home() / "Zotero" / "zotero.sqlite",
         Path.home() / ".zotero" / "zotero" / "zotero.sqlite",
@@ -40,6 +47,16 @@ def default_db_path():
         if c.exists():
             return c
     return candidates[0]
+
+
+def safe_name(name):
+    return re.sub(r"[^\w\-]+", "_", name).strip("_")
+
+
+def default_out_dir(collection_name, date):
+    """colrep/<Collection>_<YYYY-MM-DD>/ next to this script."""
+    base = Path(__file__).resolve().parent / "colrep"
+    return base / f"{safe_name(collection_name)}_{date.isoformat()}"
 
 
 def open_db(db_path):
@@ -245,7 +262,10 @@ def main():
     ap = argparse.ArgumentParser(description="Export a Zotero collection to JSON + Markdown.")
     ap.add_argument("--collection", help="Collection name to export")
     ap.add_argument("--db", default=str(default_db_path()), help="Path to zotero.sqlite")
-    ap.add_argument("--out", default=".", help="Output directory")
+    ap.add_argument(
+        "--out",
+        help="Output directory (default: colrep/<Collection>_<YYYY-MM-DD>/ next to this script)",
+    )
     ap.add_argument("--list", action="store_true", help="List collection names and exit")
     args = ap.parse_args()
 
@@ -263,9 +283,12 @@ def main():
     item_rows = items_in_collection(conn, cid)
     records = [build_record(conn, r) for r in item_rows]
 
-    out_dir = Path(args.out).expanduser()
+    if args.out:
+        out_dir = Path(args.out).expanduser()
+    else:
+        out_dir = default_out_dir(args.collection, datetime.date.today())
     out_dir.mkdir(parents=True, exist_ok=True)
-    safe = re.sub(r"[^\w\-]+", "_", args.collection).strip("_")
+    safe = safe_name(args.collection)
 
     json_path = out_dir / f"{safe}.json"
     md_path = out_dir / f"{safe}.md"
