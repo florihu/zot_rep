@@ -48,6 +48,20 @@ Averages are rounded to 1 decimal. Collection averages are pooled over all
 annotations. The Markdown shows the collection summary in the header and an
 `**Annotations:**` line for each item that has annotations.
 
+## Asking Claude about an export
+
+`CLAUDE.md` sets up Claude Code for this repo. Questions about the content of an
+exported collection are answered **with quotes only**: verbatim highlights,
+underlines or abstract sentences from the latest `colrep/` export, each followed
+by a source line (`— Wieland et al. 2022, p. 684`). Your own comments and notes
+are only quoted when labelled as yours.
+
+- No match → `No matching quotes in <Collection> export.`
+- Count or metadata questions ("how many highlights?") get a plain answer.
+- Say "summarize", "explain", "compare", ... to lift the rule for one question.
+
+Terms (Collection, Export, Quote, Annotation, ...) are defined in `GLOSSARY.md`.
+
 ## Tests
 
 ```bash
