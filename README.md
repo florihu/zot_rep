@@ -57,6 +57,8 @@ by a source line (`— Wieland et al. 2022, p. 684`). Your own comments and note
 are only quoted when labelled as yours.
 
 - No match → `No matching quotes in <Collection> export.`
+- Few quotes (< 3, or all from one paper), or you say `suggest papers` → up to 5
+  further sources from the same export, each with one quoted abstract sentence.
 - Count or metadata questions ("how many highlights?") get a plain answer.
 - Say "summarize", "explain", "compare", ... to lift the rule for one question.
 

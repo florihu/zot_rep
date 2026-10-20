@@ -31,7 +31,15 @@ When I ask about the **content** of an Exported Collection (see `GLOSSARY.md`), 
   — Wieland et al. 2022, p. 684
   ```
   (no page for abstract quotes: `— Wieland et al. 2022, abstract`). No other text: no intro, summary, interpretation or conclusion.
-- **No match**: reply exactly `No matching quotes in <Collection> export.` Don't offer near-misses.
+- **No match**: reply exactly `No matching quotes in <Collection> export.` Don't offer near-misses (but see Further sources below).
+- **Further sources**: when the answer has fewer than 3 quotes, or all quotes come from one paper, or I say `suggest papers`, append a `**Further sources to check**` list after the quotes (or after the no-match line):
+  - Search the abstracts of the same export only; prefer items whose annotations don't already answer the question.
+  - At most 5 items, each as the source line plus one verbatim abstract sentence showing relevance, e.g.
+    ```
+    - Fry et al. 2022, *Creating multi-scale nested MRIO tables…*
+      > This capability allows for the investigation of interactions between sub-national production and consumption systems, with global systems interlinked via international trade.
+    ```
+  - No list if no abstract is relevant.
 - **Not covered**: counts and metadata questions (e.g. "how many highlights?", "which items lack annotations?") get a plain answer from `stats` / item metadata.
 - **Override**: an explicit "summarize", "explain", "compare" etc. lifts the rule for that one question only.
 
