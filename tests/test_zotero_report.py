@@ -26,9 +26,9 @@ class DefaultDbPathTest(unittest.TestCase):
 
 
 class DefaultOutDirTest(unittest.TestCase):
-    def test_colrep_next_to_script_with_collection_and_date(self):
+    def test_rep_next_to_script_with_collection_and_date(self):
         out = zr.default_out_dir("Copper PSUT", datetime.date(2026, 10, 6))
-        self.assertEqual(out, Path(zr.__file__).resolve().parent / "colrep" / "Copper_PSUT_2026-10-06")
+        self.assertEqual(out, Path(zr.__file__).resolve().parent / "rep" / "Copper_PSUT_2026-10-06")
 
     def test_collection_name_is_sanitised(self):
         out = zr.default_out_dir("  a/b: c!  ", datetime.date(2026, 1, 2))

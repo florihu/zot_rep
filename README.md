@@ -27,9 +27,9 @@ Zotero may stay open; the database is copied to a temp file before reading.
 
 ## Output
 
-By default, reports go to `colrep/<Collection>_<YYYY-MM-DD>/` next to the script
+By default, reports go to `rep/<Collection>_<YYYY-MM-DD>/` next to the script
 (`<Collection>.json` + `<Collection>.md`). Re-running on the same day overwrites them.
-`--out` writes to the given directory as-is. `colrep/` is not tracked by git.
+`--out` writes to the given directory as-is. `rep/` is tracked by git; commit new exports yourself.
 
 ## Annotation stats
 
@@ -52,7 +52,7 @@ annotations. The Markdown shows the collection summary in the header and an
 
 `CLAUDE.md` sets up Claude Code for this repo. Questions about the content of an
 exported collection are answered **with quotes only**: verbatim highlights,
-underlines or abstract sentences from the latest `colrep/` export, each followed
+underlines or abstract sentences from the latest `rep/` export, each followed
 by a source line (`— Wieland et al. 2022, p. 684`). Your own comments and notes
 are only quoted when labelled as yours.
 

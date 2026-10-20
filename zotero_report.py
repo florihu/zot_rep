@@ -8,7 +8,7 @@ comments, with page + color + order), and standalone notes.
 Reads ~/Zotero/zotero.sqlite directly. No add-on required. Zotero may stay open
 (the DB is copied to a temp file first to avoid lock errors).
 
-Output goes to colrep/<Collection>_<YYYY-MM-DD>/ next to this script unless
+Output goes to rep/<Collection>_<YYYY-MM-DD>/ next to this script unless
 --out is given. Set ZOTERO_DB to point at a non-standard database location.
 
 Usage:
@@ -54,8 +54,8 @@ def safe_name(name):
 
 
 def default_out_dir(collection_name, date):
-    """colrep/<Collection>_<YYYY-MM-DD>/ next to this script."""
-    base = Path(__file__).resolve().parent / "colrep"
+    """rep/<Collection>_<YYYY-MM-DD>/ next to this script."""
+    base = Path(__file__).resolve().parent / "rep"
     return base / f"{safe_name(collection_name)}_{date.isoformat()}"
 
 
@@ -308,7 +308,7 @@ def main():
     ap.add_argument("--db", default=str(default_db_path()), help="Path to zotero.sqlite")
     ap.add_argument(
         "--out",
-        help="Output directory (default: colrep/<Collection>_<YYYY-MM-DD>/ next to this script)",
+        help="Output directory (default: rep/<Collection>_<YYYY-MM-DD>/ next to this script)",
     )
     ap.add_argument("--list", action="store_true", help="List collection names and exit")
     args = ap.parse_args()

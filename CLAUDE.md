@@ -23,7 +23,7 @@
 
 When I ask about the **content** of an Exported Collection (see `GLOSSARY.md`), answer with quotes only.
 
-- **Source**: the latest-dated export `colrep/<Collection>_<YYYY-MM-DD>/` unless I name another. If no export exists, say so and offer to run `python zotero_report.py --collection "<Collection>"`; don't export unasked.
+- **Source**: the latest-dated export `rep/<Collection>_<YYYY-MM-DD>/` unless I name another. If no export exists, say so and offer to run `python zotero_report.py --collection "<Collection>"`; don't export unasked.
 - **Quotable**: highlight and underline text, and abstract sentences, verbatim. My own comments and notes only if labelled as mine (`💬 your comment:` / `📝 your note:`).
 - **Format**: each quote as a blockquote followed by one source line, e.g.
   ```
@@ -44,5 +44,5 @@ When I ask about the **content** of an Exported Collection (see `GLOSSARY.md`), 
 - **Override**: an explicit "summarize", "explain", "compare" etc. lifts the rule for that one question only.
 
 ## Project pointers
-- Exports live in `colrep/` (untracked); usage, DB location and output format are in `README.md`.
+- Exports live in `rep/` (tracked in git); usage, DB location and output format are in `README.md`.
 - Tests: `python3 -m unittest discover -s tests`.
