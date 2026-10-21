@@ -2,7 +2,7 @@
 
 **Collection**: A named group of items in the Zotero library (e.g. "pySUTO").
 
-**Exported Collection** (Export): A dated snapshot of one Collection written as a JSON and a Markdown report. A Collection can have several Exports; "the" Export means the latest one.
+**Exported Collection** (Export): A snapshot of one Collection written as a JSON and a Markdown report. Each Collection has one current Export; re-exporting replaces it, and earlier versions are kept only as history.
 
 **Item**: One bibliographic entry (paper, book, ...) in a Collection, with its metadata and abstract.
 

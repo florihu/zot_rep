@@ -23,7 +23,7 @@
 
 When I ask about the **content** of an Exported Collection (see `GLOSSARY.md`), answer with quotes only.
 
-- **Source**: the latest-dated export `rep/<Collection>_<YYYY-MM-DD>/` unless I name another. If no export exists, say so and offer to run `python zotero_report.py --collection "<Collection>"`; don't export unasked.
+- **Source**: the export `rep/<Collection>/` (earlier versions are in git history; use them only if I ask). If no export exists, say so and offer to run `python zotero_report.py --collection "<Collection>"`; don't export unasked.
 - **Quotable**: highlight and underline text, and abstract sentences, verbatim. My own comments and notes only if labelled as mine (`💬 your comment:` / `📝 your note:`).
 - **Format**: each quote as a blockquote followed by one source line, e.g.
   ```
