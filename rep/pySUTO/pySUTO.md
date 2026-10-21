@@ -1,6 +1,6 @@
 # Zotero Report — pySUTO
 
-*215 item(s) · 980 annotations (591 highlights, 381 underlines, 11 comments) · ⌀ 44.0 words/highlight · ⌀ 18.5 words/comment*
+*217 item(s) · 980 annotations (591 highlights, 381 underlines, 11 comments) · ⌀ 44.0 words/highlight · ⌀ 18.5 words/comment*
 
 ## The PIOLab: Building global physical input–output tables in a virtual laboratory
 
@@ -4795,5 +4795,31 @@ Production or consumption processes can be seen as a transformation of inputs in
 > SourceForge (http://www.sourceforge.net/) is an excellent example. Founded in 1999, it is a web-based source-code repository which acts as a free centralized location for developers working on open-source projects. It currently hosts around 300,000 projects and has over two million registered users. Not only does it store source code but also it provides access to version control information, project wikis (websites that are easily modifiable by its users) and database access. (p. 487)
 
 > Journals should expect researchers to provide some modular description of the components of the software that support a research result; referees should take advantage of their right to appraise software as part of their reviewing task. (p. 488)
+
+---
+
+## When correlation matters: a practical guide to dealing with uncertainty in the case of data disaggregation
+
+**Authors:** Simon Schulte; Arthur Jakobs; Rick Lupton  
+**Year:** 2026  
+**Published in:** Journal of Industrial Ecology  
+**DOI:** 10.1007/s44498-026-00048-6  
+
+### Abstract
+
+Correctly modeling the relationships between correlated, uncertain input data is crucial for producing accurate uncertainty estimates of model results. This requires both an uncertainty analysis that accounts for correlations and the appropriate communication of the results, so that other analysts can correctly interpret the reported uncertainties. However, neither is common practice in industrial ecology modeling. A typical case for correlated results is the disaggregation of a total value into uncertain shares, for which we present a practical yet robust approach to model the uncertainty. Our approach is based on two standard and two generalized Dirichlet distributions, and it uses the maximum entropy principle to choose minimally biased distribution parameters in the absence of specific known values. We discuss how correlation should be communicated to preserve accurate uncertainty information and provide examples to quantify the difference it makes to the results when the correlation is simplified or completely neglected. The proposed procedure will improve the accuracy of uncertainty quantification in Material Flow Analysis (e.g. where allocation coefficients split flows to sectors), Input Output Analysis (e.g. where aggregated environmental impact data has to be disaggregated to detailed economic sectors), and some instances in Life Cycle Assessment (e.g. where market shares are uncertain). Last but not least, to lower the technical barrier to applying these approaches, we provide easy-to-use Python and R packages which automate the approach.
+
+---
+
+## FABIO─TheConstruction of the Food and AgricultureBiomass Input–Output Model
+
+**Authors:** Martin Bruckner; Richard Wood; Daniel Moran; Nikolas Kuschnig; Hanspeter Wieland; Victor Maus; Jan Börner  
+**Year:** 2019  
+**Published in:** Environmental Science & Technology  
+**DOI:** 10.1021/acs.est.9b03554  
+
+### Abstract
+
+Harvested biomass is linked to ﬁnal consumption by networks of processes and actors that convert and distribute food and nonfood goods. Achieving a sustainable resource metabolism of the economy is an overarching challenge which manifests itself in a number of the UN Sustainable Development Goals. Modeling the physical dimensions of biomass conversion and distribution networks is essential to understanding the characteristics, drivers, and dynamics of the socio-economic biomass metabolism. In this paper, we present the Food and Agriculture Biomass Input−Output model (FABIO), a set of multiregional supply, use and input−output tables in physical units, that document the complex ﬂows of agricultural and food products in the global economy. The model assembles FAOSTAT statistics reporting crop production, trade, and utilization in physical units, supplemented by data on technical and metabolic conversion eﬃciencies, into a consistent, balanced, input−output framework. FABIO covers 191 countries and 130 agriculture, food and forestry products from 1986 to 2013. The physical supply use tables oﬀered by FABIO provide a comprehensive, transparent, and ﬂexible structure for organizing data representing ﬂows of materials within metabolic networks. They allow tracing of biomass ﬂows and embodied environmental pressures along global supply chains at an unprecedented level of product and country detail and can help to answer a range of questions regarding environment, agriculture, and trade. Here we apply FABIO to the case of cropland footprints and show the evolution of consumption-based cropland demand in China, the E.U., and the U.S.A. for plant-based and livestock-based food and nonfood products.
 
 ---

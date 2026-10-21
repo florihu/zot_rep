@@ -1,6 +1,6 @@
 {
   "collection": "pySUTO",
-  "item_count": 215,
+  "item_count": 217,
   "stats": {
     "annotations": 980,
     "highlights": 591,
@@ -16520,6 +16520,94 @@
         "comments": 5,
         "avg_text_words": 47.3,
         "avg_comment_words": 6.4
+      }
+    },
+    {
+      "key": "IREI5SHV",
+      "item_type": "journalArticle",
+      "title": "When correlation matters: a practical guide to dealing with uncertainty in the case of data disaggregation",
+      "authors": [
+        {
+          "name": "Simon Schulte",
+          "type": "author"
+        },
+        {
+          "name": "Arthur Jakobs",
+          "type": "author"
+        },
+        {
+          "name": "Rick Lupton",
+          "type": "author"
+        }
+      ],
+      "year": "2026",
+      "date": "2026-04-00 04/2026",
+      "publication": "Journal of Industrial Ecology",
+      "doi": "10.1007/s44498-026-00048-6",
+      "url": "https://link.springer.com/10.1007/s44498-026-00048-6",
+      "abstract": "Correctly modeling the relationships between correlated, uncertain input data is crucial for producing accurate uncertainty estimates of model results. This requires both an uncertainty analysis that accounts for correlations and the appropriate communication of the results, so that other analysts can correctly interpret the reported uncertainties. However, neither is common practice in industrial ecology modeling. A typical case for correlated results is the disaggregation of a total value into uncertain shares, for which we present a practical yet robust approach to model the uncertainty. Our approach is based on two standard and two generalized Dirichlet distributions, and it uses the maximum entropy principle to choose minimally biased distribution parameters in the absence of specific known values. We discuss how correlation should be communicated to preserve accurate uncertainty information and provide examples to quantify the difference it makes to the results when the correlation is simplified or completely neglected. The proposed procedure will improve the accuracy of uncertainty quantification in Material Flow Analysis (e.g. where allocation coefficients split flows to sectors), Input Output Analysis (e.g. where aggregated environmental impact data has to be disaggregated to detailed economic sectors), and some instances in Life Cycle Assessment (e.g. where market shares are uncertain). Last but not least, to lower the technical barrier to applying these approaches, we provide easy-to-use Python and R packages which automate the approach.",
+      "tags": [],
+      "annotations": [],
+      "notes": [],
+      "stats": {
+        "annotations": 0,
+        "highlights": 0,
+        "underlines": 0,
+        "comments": 0,
+        "avg_text_words": null,
+        "avg_comment_words": null
+      }
+    },
+    {
+      "key": "NMC6C424",
+      "item_type": "journalArticle",
+      "title": "FABIO─TheConstruction of the Food and AgricultureBiomass Input–Output Model",
+      "authors": [
+        {
+          "name": "Martin Bruckner",
+          "type": "author"
+        },
+        {
+          "name": "Richard Wood",
+          "type": "author"
+        },
+        {
+          "name": "Daniel Moran",
+          "type": "author"
+        },
+        {
+          "name": "Nikolas Kuschnig",
+          "type": "author"
+        },
+        {
+          "name": "Hanspeter Wieland",
+          "type": "author"
+        },
+        {
+          "name": "Victor Maus",
+          "type": "author"
+        },
+        {
+          "name": "Jan Börner",
+          "type": "author"
+        }
+      ],
+      "year": "2019",
+      "date": "2019-10-01 2019-10-01",
+      "publication": "Environmental Science & Technology",
+      "doi": "10.1021/acs.est.9b03554",
+      "url": "https://pubs.acs.org/esthag/article/53/19/11302/1384229/FABIO-The-Construction-of-the-Food-and-Agriculture",
+      "abstract": "Harvested biomass is linked to ﬁnal consumption by networks of processes and actors that convert and distribute food and nonfood goods. Achieving a sustainable resource metabolism of the economy is an overarching challenge which manifests itself in a number of the UN Sustainable Development Goals. Modeling the physical dimensions of biomass conversion and distribution networks is essential to understanding the characteristics, drivers, and dynamics of the socio-economic biomass metabolism. In this paper, we present the Food and Agriculture Biomass Input−Output model (FABIO), a set of multiregional supply, use and input−output tables in physical units, that document the complex ﬂows of agricultural and food products in the global economy. The model assembles FAOSTAT statistics reporting crop production, trade, and utilization in physical units, supplemented by data on technical and metabolic conversion eﬃciencies, into a consistent, balanced, input−output framework. FABIO covers 191 countries and 130 agriculture, food and forestry products from 1986 to 2013. The physical supply use tables oﬀered by FABIO provide a comprehensive, transparent, and ﬂexible structure for organizing data representing ﬂows of materials within metabolic networks. They allow tracing of biomass ﬂows and embodied environmental pressures along global supply chains at an unprecedented level of product and country detail and can help to answer a range of questions regarding environment, agriculture, and trade. Here we apply FABIO to the case of cropland footprints and show the evolution of consumption-based cropland demand in China, the E.U., and the U.S.A. for plant-based and livestock-based food and nonfood products.",
+      "tags": [],
+      "annotations": [],
+      "notes": [],
+      "stats": {
+        "annotations": 0,
+        "highlights": 0,
+        "underlines": 0,
+        "comments": 0,
+        "avg_text_words": null,
+        "avg_comment_words": null
       }
     }
   ]
